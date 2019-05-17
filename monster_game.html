@@ -34,7 +34,7 @@
             </div>
         </div>
     </section>
-    <section class="row controls">
+    <section class="row controls" v-if="!playing">
         <div class="small-12 columns">
             <p v-if="won" style="font-weight: bold;">You won!</p>
             <p v-else-if="lost" style="font-weight: bold;">Damn, you lost. Try again! :)</p>
@@ -42,7 +42,7 @@
             <button id="next-level" v-if="won == true" @click="nextLevel">GO TO NEXT LEVEL >></button>
         </div>
     </section>
-    <section class="row controls">
+    <section class="row controls" v-if="playing">
         <div class="small-12 columns">
             <p style="font-weight: bold;">LEVEL {{ level }}</p>
             <button id="attack" @click="attack">ATTACK</button>
