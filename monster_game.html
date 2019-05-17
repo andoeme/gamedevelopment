@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Slayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <img src="img/hero.png" alt="Your Hero">
+            <br><br>
+            <div class="healthbar">
+                <div class="healthbar text-center" v-bind:style="widthHero" style="background-color: green; margin: 0; color: white;">
+                    {{ heroHealth}}
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">MONSTER</h1>
+            <img v-if="level == 1" src="img/enemy1.png" alt="Your enemy">
+            <img v-else-if="level == 2" src="img/enemy2.png" alt="Your enemy">
+            <img v-else-if="level == 3" src="img/enemy3.png" alt="Your enemy">
+            <img v-else-if="level == 4" src="img/enemy4.png" alt="Your enemy">
+            <img v-else-if="level == 5" src="img/enemy5.png" alt="Your enemy">
+            <br><br>
+            <div class="healthbar">
+                <div class="healthbar text-center" v-bind:style="widthEnemy" style="background-color: green; margin: 0; color: white;">
+                    {{ enemyHealth }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row controls">
+        <div class="small-12 columns">
+            <p v-if="won" style="font-weight: bold;">You won!</p>
+            <p v-else-if="lost" style="font-weight: bold;">Damn, you lost. Try again! :)</p>
+            <button id="start-game" @click="newGame">START NEW GAME</button>
+            <button id="next-level" v-if="won == true" @click="nextLevel">GO TO NEXT LEVEL >></button>
+        </div>
+    </section>
+    <section class="row controls">
+        <div class="small-12 columns">
+            <p style="font-weight: bold;">LEVEL {{ level }}</p>
+            <button id="attack" @click="attack">ATTACK</button>
+            <button id="special-attack" @click="specialAttack">SPECIAL ATTACK</button>
+            <button id="heal" @click="heal">HEAL</button>
+            <button id="give-up" @click="giveUp">GIVE UP</button>
+        </div>
+    </section>
+    <section class="row log">
+        <div class="small-12 columns">
+            <ul v-for="(event, index) in log">
+                <li v-if="index % 2 == 0" style="background: #ff7367;">
+                    {{ event }}
+                </li>
+                <li v-else style="background: #aaffb0;">
+                    {{ event }}
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<script src="js/section4.js"></script>
+
+</body>
+</html>
