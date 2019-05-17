@@ -11,7 +11,7 @@
     <section class="row">
         <div class="small-6 columns">
             <h1 class="text-center">YOU</h1>
-            <img src="img/hero.png" alt="Your Hero">
+            <img src="img/hero.jpg" alt="Your Hero">
             <br><br>
             <div class="healthbar">
                 <div class="healthbar text-center" v-bind:style="widthHero" style="background-color: green; margin: 0; color: white;">
@@ -21,11 +21,11 @@
         </div>
         <div class="small-6 columns">
             <h1 class="text-center">MONSTER</h1>
-            <img v-if="level == 1" src="img/enemy1.png" alt="Your enemy">
-            <img v-else-if="level == 2" src="img/enemy2.png" alt="Your enemy">
-            <img v-else-if="level == 3" src="img/enemy3.png" alt="Your enemy">
-            <img v-else-if="level == 4" src="img/enemy4.png" alt="Your enemy">
-            <img v-else-if="level == 5" src="img/enemy5.png" alt="Your enemy">
+            <img v-if="level == 1" src="img/enemy1.jpg" alt="Your enemy">
+            <img v-else-if="level == 2" src="img/enemy2.jpg" alt="Your enemy">
+            <img v-else-if="level == 3" src="img/enemy3.jpg" alt="Your enemy">
+            <img v-else-if="level == 4" src="img/enemy4.jpg" alt="Your enemy">
+            <img v-else-if="level == 5" src="img/enemy5.jpg" alt="Your enemy">
             <br><br>
             <div class="healthbar">
                 <div class="healthbar text-center" v-bind:style="widthEnemy" style="background-color: green; margin: 0; color: white;">
