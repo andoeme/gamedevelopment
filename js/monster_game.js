@@ -9,6 +9,7 @@ new Vue({
         level: 1,
         won: false,
         lost: false,
+        playing: false,
         attackMultiplier: Math.random() * 10 + 10,
     },
     methods: {
@@ -20,6 +21,7 @@ new Vue({
 
             this.level = 1;
             this.log = [];
+            this.playing = true;
         },
         nextLevel() {
             this.heroHealth = 100;
@@ -30,12 +32,14 @@ new Vue({
             this.level++;
             this.won = false;
             this.log = [];
+            this.playing = true;
         },
         giveUp() {
             this.heroHealth = 0;
             this.widthHero = 'width: ' + 0 + '%';
             
             this.endGame()
+            this.playing = false;
         },
         checkLevel() {
             switch(this.level){
@@ -99,12 +103,14 @@ new Vue({
                 this.widthHero = 'width: ' + this.heroHealth + '%';
                 this.won = false;
                 this.lost = true;
+                this.playing = false;
             } 
             else if(this.enemyHealth <= 0){
                 this.enemyHealth = 0;
                 this.widthEnemy = 'width: ' + 0 + '%';
                 this.won = true;
                 this.lost = false;
+                this.playing = false;
 
                 if(this.level == 5) {
                     alert("Wow, you beat the game!");
